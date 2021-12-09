@@ -2,7 +2,7 @@
 
 ## OpenSSL static library + prefab
 
-Easy to use solution to bake fresh version of OpenSLL into your NDK Library
+Easy to use solution to bake fresh version of [OpenSLL](http://openssl.org/) into your NDK Library
 
 ## Before you start
 
