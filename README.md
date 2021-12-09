@@ -18,7 +18,7 @@ But you can have the best of both worlds: easy to implement prefab dependency + 
 ```gradle
 dependencies {
     ...
-    implementation 'com.github.ibitcy:eo-mobile-openssl-static:1.1.1l'
+    implementation 'com.github.ibitcy:eo-mobile-openssl-static:1.1.1.12'
     ...
 }
 ```
