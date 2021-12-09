@@ -4,6 +4,12 @@
 
 Easy to use solution to bake fresh version of OpenSLL into your NDK Library
 
+## Before you start
+
+This package made for using it with Gradle's "prefab" dependencies system.
+
+So it's better to start with reading more about it [here](https://developer.android.com/studio/build/dependencies?buildsystem=cmake#native-dependencies-with-agp) or [here](https://github.com/android/ndk-samples/tree/main/prefab).
+
 ## Why we did it:
 
 Using [Google's Prefabbed OpenSLL library ](https://mvnrepository.com/artifact/com.android.ndk.thirdparty/openssl) you'll face a problem with `libssl.so` and `libcrypto.so` on devices with Android 5
