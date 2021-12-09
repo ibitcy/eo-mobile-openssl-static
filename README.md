@@ -6,7 +6,7 @@ Easy to use solution to bake fresh version of OpenSLL into your NDK Library
 
 ## Why we did it:
 
-Using [Google's Prefabbed OpenSLL library ](https://mvnrepository.com/artifact/com.android.ndk.thirdparty/openssl) you'll face a problem with libssl.so and libcrypto.so on devices with Android 5
+Using [Google's Prefabbed OpenSLL library ](https://mvnrepository.com/artifact/com.android.ndk.thirdparty/openssl) you'll face a problem with `libssl.so` and `libcrypto.so` on devices with Android 5
 
 In this cases the one and only way to have latest version of OpenSSL in your app is merge it into your library
 
