@@ -1,0 +1,83 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.0'
+        classpath "io.github.howardpang:androidNativeBundle:1.1.1"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.ydq.android.gradle.native-aar.export' // must below android gradle plugin
+
+android {
+    compileSdkVersion 30
+    ndkVersion '22.1.7171670'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17"
+                arguments "-DANDROID_STL=c++_shared"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    buildFeatures {
+        prefabPublishing true
+    }
+
+
+    buildTypes {
+        debug {
+            sourceSets {
+                main {
+                    manifest.srcFile 'AndroidManifest.xml'
+                }
+            }
+        }
+
+        release {
+            sourceSets {
+                main {
+                    manifest.srcFile 'AndroidManifest.xml'
+                }
+            }
+        }
+    }
+
+    packagingOptions {
+        exclude("**/libopenssl.so")
+        exclude("**/libc++_shared.so")
+    }
+
+    prefab {
+        crypto {
+            headers "../openssl/include"
+        }
+        ssl {
+            headers "../openssl/include"
+        }
+    }
+
+    nativeBundleExport {
+        headerDir = "../openssl/"
+        extraStaticLibDir = "./openssl/lib/"
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
