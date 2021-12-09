@@ -16,27 +16,31 @@ But you can have the best of both worlds: easy to implement prefab dependency + 
 
 1. Add dependency to your build.gradle:
 ```gradle
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+..
 dependencies {
-    ...
+    ..
     implementation 'com.github.ibitcy:eo-mobile-openssl-static:1.1.1.12'
-    ...
+    ..
 }
 ```
 2. Add this code pieces to your CMakeLists.txt:
 ```cmake
 find_package(openssl REQUIRED CONFIG)
-...
+..
 get_target_property(OPENSSL_INCLUDE_DIR openssl::ssl INTERFACE_INCLUDE_DIRECTORIES)
-...
+..
 set_target_properties(openssl::crypto PROPERTIES IMPORTED_LOCATION ${OPENSSL_INCLUDE_DIR}/../../../../jni/include/lib/${CMAKE_ANDROID_ARCH_ABI}/libcrypto.a)
 set_target_properties(openssl::ssl PROPERTIES IMPORTED_LOCATION ${OPENSSL_INCLUDE_DIR}/../../../../jni/include/lib/${CMAKE_ANDROID_ARCH_ABI}/libssl.a)
-...
+..
 target_link_libraries(
         your_library_name
-        ...
+        ..
         openssl::ssl
         openssl::crypto
-        ...
+        ..
 )
 ```
 3. Build! 🎉🎉🎉
