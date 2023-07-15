@@ -50,3 +50,9 @@ target_link_libraries(
 )
 ```
 3. Build! 🎉🎉🎉
+
+## Maintenance
+
+
+We use this repo to build .a and .so
+https://github.com/stephenkopylov/android_openssl_build_scripts/tree/main
